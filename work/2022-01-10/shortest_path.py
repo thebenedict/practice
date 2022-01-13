@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 '''
-find the shortest path between A and D
+find the shortest path between A and D, use an iterative approach
 '''
 
 def main():
