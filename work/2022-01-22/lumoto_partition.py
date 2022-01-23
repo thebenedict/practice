@@ -1,14 +1,8 @@
 #!/usr/bin/env python3
 
 """
-    Hoare partition
-    Partition an array using Hoare's partition scheme
-
-    Note: Unlike Lumoto, in Hoare's partitioning the return value isn't
-    necessarily the location of the pivot in the array. It is just the last
-    index of the partition: at and below that index all elements are LTE some
-    pivot value. The index returned from Hoare's partition does not tell you
-    what partition value was used.
+    Lumoto partition
+    Partition an array using Lumoto's partition scheme
 """
 
 
@@ -65,16 +59,17 @@ def main():
         37,
         14,
     ]
-    pivot, partition_index = partition(input)
+    p = partition(input)
     print(input)
-    for a in input[:partition_index]:
-        assert a <= pivot
-    for a in input[partition_index:]:
-        assert a >= pivot
+    print(input[p])
+    for a in input[:p]:
+        assert a <= input[p]
+    for a in input[p + 1 :]:
+        assert a > input[p]
 
 
-def partition(input: list) -> tuple([int, int]):
-    return (-1, -1)
+def partition(input: list) -> int:
+    pass
 
 
 if __name__ == "__main__":

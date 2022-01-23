@@ -1,0 +1,4 @@
+[flake8]
+ignore = E203
+exclude = work
+max-line-length = 95
