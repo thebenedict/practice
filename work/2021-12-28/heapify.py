@@ -5,11 +5,13 @@
     Build a min heap from an array of integers, without using heapq or similar
 """
 
+
 def main():
     input = [1918, 2001, 1776, 1804, 1865, 1945, 1941, 1963, 1783, 1492]
     heapify(input)
     print(input)
     assert validate_heap(input)
+
 
 def heapify(input: list) -> None:
     for i, elt in enumerate(input):
@@ -17,26 +19,30 @@ def heapify(input: list) -> None:
         if parent != -1 and elt < input[parent]:
             bubble_up(i, input)
 
+
 def heap_parent(i):
     if i == 0:
         return -1
     else:
         return (i - 1) // 2
 
+
 def bubble_up(i, input):
-    if i == 0 :
+    if i == 0:
         return
     parent = heap_parent(i)
     while input[i] < input[parent]:
         input[i], input[parent] = input[parent], input[i]
         bubble_up(parent, input)
 
+
 def validate_heap(arr):
     n = len(arr)
     for i in range(1, n):
-        if arr[(i - 1) // 2] > arr[i]: 
+        if arr[(i - 1) // 2] > arr[i]:
             return False
     return True
+
 
 if __name__ == "__main__":
     main()
