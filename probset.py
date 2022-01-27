@@ -17,9 +17,20 @@ def main():
         type=int,
         help="number of problems in the problem set",
     )
+    parser.add_argument(
+        "-t",
+        "--topic",
+        type=str,
+        help="topic directory to pull from",
+    )
     args = parser.parse_args()
 
-    exercise_paths = [path for path in Path("exercises").rglob("*.py")]
+    if args.topic:
+        exercise_paths = [
+            path for path in Path(f"exercises/{args.topic}").rglob("*.py")
+        ]
+    else:
+        exercise_paths = [path for path in Path("exercises").rglob("*.py")]
     outputdir = f'work/{datetime.now().strftime("%Y-%m-%d")}'
 
     os.mkdir(outputdir)
